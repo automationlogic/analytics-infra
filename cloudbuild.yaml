@@ -32,7 +32,8 @@ steps:
   - '-c'
   - |
      terraform apply \
-       -var-file="tfvars/terraform.tfvars"
+       -var-file="tfvars/terraform.tfvars" \
+       -auto-approve
   dir: /workspace/infra
   env:
   - "TF_VAR_analytics_project=${_ANALYTICS_PROJECT}"
