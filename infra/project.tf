@@ -13,6 +13,7 @@ resource "google_project_service" "analytics_infra" {
     "pubsub.googleapis.com",
     "sourcerepo.googleapis.com",
     "cloudbuild.googleapis.com",
+    "cloudscheduler.googleapis.com",
     "containerregistry.googleapis.com",
     "storage-api.googleapis.com",
     "bigquerystorage.googleapis.com",
