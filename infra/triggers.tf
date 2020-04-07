@@ -10,7 +10,7 @@ resource "google_cloudbuild_trigger" "analytics_infra" {
   description = "BUILD: ${each.value}"
   filename    = "cloudbuild.yaml"
   included_files = [
-    "*"
+    "**/*"
   ]
 
   depends_on = [google_project_service.analytics_infra]
