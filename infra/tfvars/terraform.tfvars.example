@@ -1,0 +1,15 @@
+repos = [
+  "ingest-ncei-wind",
+  "serve-climate-news"
+]
+topics = [
+  "ncei-wind"
+]
+subscriptions = [
+  "ncei-wind"
+]
+datasets = [
+  "ncei"
+]
+ml_models_bucket = "ml-models"
+ml_articles_bucket = "ml-articles"
