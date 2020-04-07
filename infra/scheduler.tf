@@ -10,6 +10,8 @@ resource "google_cloud_scheduler_job" "ingest_clnn" {
     http_method = "GET"
     uri         = "https://ingest-clnn-news-dot-${var.analytics_project}.appspot.com/ingest"
   }
+
+  depends_on = [google_project_service.analytics_infra]
 }
 
 resource "google_cloud_scheduler_job" "generate_climate_news" {
@@ -29,4 +31,6 @@ resource "google_cloud_scheduler_job" "generate_climate_news" {
       service_account_email = "${var.analytics_project}@appspot.gserviceaccount.com"
     }
   }
+
+  depends_on = [google_project_service.analytics_infra]
 }

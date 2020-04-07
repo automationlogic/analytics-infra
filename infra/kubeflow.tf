@@ -20,6 +20,8 @@ resource "google_compute_firewall" "http_istio_ingress" {
     protocol = "tcp"
     ports    = ["31380"]
   }
+
+  depends_on = [google_project_service.analytics_infra]
 }
 
 resource "google_compute_firewall" "https_istio_ingress" {
@@ -31,4 +33,6 @@ resource "google_compute_firewall" "https_istio_ingress" {
     protocol = "tcp"
     ports    = ["31390"]
   }
+
+  depends_on = [google_project_service.analytics_infra]
 }
