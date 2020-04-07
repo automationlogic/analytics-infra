@@ -6,6 +6,8 @@ resource "google_storage_bucket" "kubeflow_pipeline_bucket" {
   project            = var.analytics_project
   location           = "EU"
   bucket_policy_only = true
+
+  depends_on = [google_project_service.analytics_infra]
 }
 
 # The firewall rules are for Kubeflow Istio, which is setup later

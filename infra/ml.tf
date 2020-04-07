@@ -6,6 +6,8 @@ resource "google_storage_bucket" "ml_models_bucket" {
   project            = var.analytics_project
   location           = "EU"
   bucket_policy_only = true
+
+  depends_on = [google_project_service.analytics_infra]
 }
 
 resource "google_storage_bucket" "ml_articles_bucket" {
@@ -13,4 +15,6 @@ resource "google_storage_bucket" "ml_articles_bucket" {
   project            = var.analytics_project
   location           = "EU"
   bucket_policy_only = true
+
+  depends_on = [google_project_service.analytics_infra]
 }

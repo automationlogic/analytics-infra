@@ -1,5 +1,6 @@
 resource "google_project" "analytics_infra" {
   name            = var.analytics_project
+  org_id          = var.org_id
   project_id      = var.analytics_project
   billing_account = var.billing_account
 }
