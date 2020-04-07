@@ -12,4 +12,6 @@ resource "google_cloudbuild_trigger" "analytics_infra" {
   included_files = [
     "*"
   ]
+
+  depends_on = [google_project_service.analytics_infra]
 }
