@@ -19,5 +19,3 @@ datasets = [
   "ncei",
   "clnn"
 ]
-ml_models_bucket   = "climate-analytics-models"
-ml_articles_bucket = "climate-analytics-generated-articles"

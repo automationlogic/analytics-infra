@@ -2,7 +2,7 @@
 # Kubeflow only gets installed after terraform has run
 
 resource "google_storage_bucket" "kubeflow_pipeline_bucket" {
-  name               = "kubeflow-pipeline"
+  name               = name               = format("%s-kubeflow-pipelines", google_project.analytics_infra.project_id)
   project            = var.analytics_project
   location           = "EU"
   bucket_policy_only = true
