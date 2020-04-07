@@ -1,3 +1,7 @@
+variable "org_id" {
+  type = string
+}
+
 variable "analytics_project" {
   type = string
 }
