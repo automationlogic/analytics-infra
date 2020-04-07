@@ -6,7 +6,7 @@ resource "google_project" "analytics_infra" {
 
 resource "google_project_service" "analytics_infra" {
   project = var.analytics_project
-  for_each = toset(
+  for_each = toset([
     "logging.googleapis.com",
     "bigquery.googleapis.com",
     "appengine.googleapis.com",
@@ -21,7 +21,7 @@ resource "google_project_service" "analytics_infra" {
     "oslogin.googleapis.com",
     "iam.googleapis.com",
     "iamcredentials.googleapis.com"
-  )
+  ])
   service = each.key
 
   depends_on = [google_project.analytics_infra]
