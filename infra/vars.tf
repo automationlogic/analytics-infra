@@ -3,7 +3,6 @@ variable "region" {}
 variable "repos" {
   type = set(string)
 }
-variable "kf_repo" {}
 variable "topics" {
   type = set(string)
 }
@@ -15,6 +14,3 @@ variable "datasets" {
 }
 variable "analytics_project" {}
 variable "billing_account" {}
-variable "owner_email" {}
-variable "oauth_client_id" {}
-variable "oauth_client_secret" {}

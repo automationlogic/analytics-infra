@@ -11,8 +11,8 @@ resource "google_cloudbuild_trigger" "analytics_infra" {
   }
 
   substitutions = {
-    _ANALYTICS_PROJECT = var.analytics_project
     _REGION            = var.region
+    _ANALYTICS_PROJECT = var.analytics_project
   }
 
   description = "BUILD: ${each.value}"
