@@ -23,7 +23,7 @@ resource "google_cloudbuild_trigger" "analytics_infra" {
 
 # Kubeflow deployment trigger
 
-resource "google_cloudbuild_trigger" "analytics_infra" {
+resource "google_cloudbuild_trigger" "analytics_kubeflow" {
   provider = google-beta
 
   github {
