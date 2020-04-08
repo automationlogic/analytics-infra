@@ -1,4 +1,5 @@
 resource "google_cloudbuild_trigger" "analytics_infra" {
+  provider = google-beta
   for_each = var.repos
 
   github {
