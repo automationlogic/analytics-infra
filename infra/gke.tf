@@ -1,6 +1,6 @@
 resource "google_container_cluster" "primary" {
   name     = "analytics-gke-cluster"
-  location = var.region
+  location = "${var.region}-a"
   project  = var.analytics_project
 
   # We can't create a cluster with no node pool defined, but we want to only use
@@ -17,7 +17,7 @@ resource "google_container_node_pool" "primary_nodes" {
   location   = var.region
   project    = var.analytics_project
   cluster    = google_container_cluster.primary.name
-  node_count = 1
+  node_count = 3
 
   node_config {
     machine_type = "n1-standard-4"
