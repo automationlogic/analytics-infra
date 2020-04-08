@@ -1,6 +1,5 @@
 resource "google_cloudbuild_trigger" "analytics_infra" {
   for_each = var.repos
-  project  = var.analytics_project
 
   github {
     owner = "thundercomb"
