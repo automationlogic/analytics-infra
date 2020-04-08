@@ -3,6 +3,9 @@ variable "region" {}
 variable "repos" {
   type = set(string)
 }
+variable "training_repos" {
+  type = set(string)
+}
 variable "topics" {
   type = set(string)
 }
