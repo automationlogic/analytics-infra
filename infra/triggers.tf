@@ -10,6 +10,12 @@ resource "google_cloudbuild_trigger" "analytics_infra" {
     }
   }
 
+  substitutions = {
+    _ANALYTICS_PROJECT = var.analytics_project
+    _REGION            = var.region
+    _GKE_CLUSTER_NAME  = google_container_cluster.primary.name
+  }
+
   description = "BUILD: ${each.value}"
   filename    = "cloudbuild.yaml"
   included_files = [
