@@ -26,7 +26,7 @@ resource "google_cloudbuild_trigger" "analytics_infra" {
 
 # training repos have additional substitutions for kubeflow
 
-resource "google_cloudbuild_trigger" "analytics_infra" {
+resource "google_cloudbuild_trigger" "analytics_training" {
   provider = google-beta
   for_each = var.training_repos
 
