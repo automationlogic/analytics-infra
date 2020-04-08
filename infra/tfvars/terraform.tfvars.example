@@ -2,7 +2,6 @@ repos = [
   "ingest-ncei-wind",
   "serve-climate-news"
 ]
-kf_repo = "analytics-kubeflow"
 topics = [
   "ncei-wind"
 ]

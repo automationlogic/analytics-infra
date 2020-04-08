@@ -10,8 +10,10 @@ resource "google_project_iam_binding" "editors" {
     "serviceAccount:${google_project.analytics_infra.number}@cloudservices.gserviceaccount.com",
   ]
 
-  depends_on = [google_project_service.analytics_infra,
-  google_app_engine_application.app]
+  depends_on = [
+    google_project_service.analytics_infra,
+    google_app_engine_application.app
+  ]
 }
 
 # Cloud Build
@@ -37,37 +39,8 @@ resource "google_project_iam_binding" "app_engine_bigquery" {
     "serviceAccount:${google_project.analytics_infra.project_id}@appspot.gserviceaccount.com"
   ]
 
-  depends_on = [google_project_service.analytics_infra,
-  google_app_engine_application.app]
-}
-
-# Kubeflow
-
-resource "google_project_iam_binding" "gke_kubeflow_jupyter_storage" {
-  project = var.analytics_project
-  role    = "roles/storage.admin"
-
-  members = [
-    "serviceAccount:${google_project.analytics_infra.number}-compute@developer.gserviceaccount.com"
-  ]
-
   depends_on = [
     google_project_service.analytics_infra,
-    google_container_cluster.primary
-  ]
-}
-
-
-resource "google_project_iam_binding" "gke_kubeflow_jupyter_bigquery" {
-  project = var.analytics_project
-  role    = "roles/bigquery.admin"
-
-  members = [
-    "serviceAccount:${google_project.analytics_infra.number}-compute@developer.gserviceaccount.com"
-  ]
-
-  depends_on = [
-    google_project_service.analytics_infra,
-    google_container_cluster.primary
+    google_app_engine_application.app
   ]
 }
