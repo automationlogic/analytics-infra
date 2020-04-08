@@ -2,9 +2,12 @@ resource "google_cloudbuild_trigger" "analytics_infra" {
   for_each = var.repos
   project  = var.analytics_project
 
-  trigger_template {
-    branch_name = "master"
-    repo_name   = each.value
+  github {
+    owner = "thundercomb"
+    name  = each.value
+    push {
+      branch = "^master$"
+    }
   }
 
   description = "BUILD: ${each.value}"
