@@ -3,6 +3,7 @@ variable "region" {}
 variable "repos" {
   type = set(string)
 }
+variable "kf_repo" {}
 variable "topics" {
   type = set(string)
 }
