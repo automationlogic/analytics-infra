@@ -14,7 +14,7 @@ resource "google_container_cluster" "primary" {
 
 resource "google_container_node_pool" "primary_nodes" {
   name       = "analytics-node-pool"
-  location   = var.region
+  location   = "${var.region}-a"
   project    = var.analytics_project
   cluster    = google_container_cluster.primary.name
   node_count = 3
