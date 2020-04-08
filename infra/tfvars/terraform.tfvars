@@ -7,8 +7,8 @@ repos = [
   "serve-iris-predictions",
   "serve-climate-news",
   "kubeflow-tools",
-  "analytics-kubeflow"
 ]
+kf_repo = "analytics-kubeflow"
 topics = [
   "ncei-wind",
   "clnn-news"

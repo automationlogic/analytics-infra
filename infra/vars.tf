@@ -1,7 +1,4 @@
 variable "org_id" {}
-variable "analytics_project" {}
-variable "billing_account" {}
-variable "owner_email" {}
 variable "region" {}
 variable "repos" {
   type = set(string)
@@ -15,3 +12,8 @@ variable "subscriptions" {
 variable "datasets" {
   type = set(string)
 }
+variable "analytics_project" {}
+variable "billing_account" {}
+variable "owner_email" {}
+variable "oauth_client_id" {}
+variable "oauth_client_secret" {}
