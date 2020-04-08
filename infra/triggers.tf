@@ -37,6 +37,7 @@ resource "google_cloudbuild_trigger" "analytics_kubeflow" {
   substitutions = {
     _ANALYTICS_PROJECT   = var.analytics_project
     _REGION              = var.region
+    _GKE_CLUSTER_NAME    = google_container_cluster.primary.name
     _OAUTH_CLIENT_ID     = var.oauth_client_id
     _OAUTH_CLIENT_SECRET = var.oauth_client_secret
   }
