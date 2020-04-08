@@ -3,7 +3,7 @@ resource "google_cloudbuild_trigger" "analytics_infra" {
   for_each = var.repos
 
   github {
-    owner = "thundercomb"
+    owner = var.owner
     name  = each.value
     push {
       branch = "^master$"
