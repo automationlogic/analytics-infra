@@ -21,6 +21,7 @@ steps:
   dir: /workspace/infra
   env:
   - "TF_VAR_org_id=${_ORG_ID}"
+  - "GOOGLE_PROJECT=${PROJECT_ID}"
   - "TF_VAR_analytics_project=${_ANALYTICS_PROJECT}"
   - "TF_VAR_region=${_REGION}"
   - "TF_VAR_billing_account=${_BILLING_ACCOUNT}"
@@ -38,6 +39,7 @@ steps:
   dir: /workspace/infra
   env:
   - "TF_VAR_org_id=${_ORG_ID}"
+  - "GOOGLE_PROJECT=${PROJECT_ID}"
   - "TF_VAR_analytics_project=${_ANALYTICS_PROJECT}"
   - "TF_VAR_region=${_REGION}"
   - "TF_VAR_billing_account=${_BILLING_ACCOUNT}"
