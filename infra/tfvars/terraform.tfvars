@@ -1,4 +1,5 @@
 repos = [
+  "default-service",
   "ingest-ncei-wind",
   "ingest-clnn-news",
   "train-climate-news",
