@@ -14,3 +14,4 @@ variable "datasets" {
 }
 variable "analytics_project" {}
 variable "billing_account" {}
+variable "owner_email" {}
