@@ -2,6 +2,9 @@ repos = [
   "ingest-ncei-wind",
   "serve-climate-news"
 ]
+ml_repos = [
+  "train-iris"
+]
 topics = [
   "ncei-wind"
 ]

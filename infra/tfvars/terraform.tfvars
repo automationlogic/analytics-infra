@@ -2,11 +2,13 @@ repos = [
   "default-service",
   "ingest-ncei-wind",
   "ingest-clnn-news",
-  "train-climate-news",
-  "train-iris",
   "generate-climate-news",
   "serve-iris-predictions",
   "serve-climate-news",
+]
+ml_repos = [
+  "train-climate-news",
+  "train-iris",
 ]
 topics = [
   "ncei-wind",
