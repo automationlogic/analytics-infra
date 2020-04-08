@@ -2,7 +2,7 @@ repos = [
   "ingest-ncei-wind",
   "serve-climate-news"
 ]
-ml_repos = [
+training_repos = [
   "train-iris"
 ]
 topics = [

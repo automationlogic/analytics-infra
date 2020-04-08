@@ -6,7 +6,7 @@ repos = [
   "serve-iris-predictions",
   "serve-climate-news",
 ]
-ml_repos = [
+training_repos = [
   "train-climate-news",
   "train-iris",
 ]
