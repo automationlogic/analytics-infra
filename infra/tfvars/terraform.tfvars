@@ -5,6 +5,7 @@ repos = [
   "generate-climate-news",
   "serve-iris-predictions",
   "serve-climate-news",
+  "kubeflow-tools",
 ]
 training_repos = [
   "train-climate-news",
