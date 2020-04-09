@@ -1,14 +1,51 @@
-# Editors: gcr, app engine, cloud services
+# App Engine
 
-resource "google_project_iam_binding" "editors" {
+resource "google_project_iam_member" "app_engine" {
   project = var.analytics_project
-  role    = "roles/editor"
+  for_each = toset([
+    "roles/editor",
+    "roles/bigquery.dataEditor"
+  ])
 
-  members = [
-    "serviceAccount:service-${google_project.analytics_infra.number}@containerregistry.iam.gserviceaccount.com",
-    "serviceAccount:${google_project.analytics_infra.project_id}@appspot.gserviceaccount.com",
-    "serviceAccount:${google_project.analytics_infra.number}@cloudservices.gserviceaccount.com",
+  role = each.key
+
+  member = "serviceAccount:${google_project.analytics_infra.project_id}@appspot.gserviceaccount.com"
+
+  depends_on = [
+    google_project_service.analytics_infra,
+    google_app_engine_application.app
   ]
+}
+
+# Container registry
+
+resource "google_project_iam_member" "container_registry" {
+  project = var.analytics_project
+  for_each = toset([
+    "roles/editor"
+  ])
+
+  role = each.key
+
+  member = "serviceAccount:service-${google_project.analytics_infra.number}@containerregistry.iam.gserviceaccount.com"
+
+  depends_on = [
+    google_project_service.analytics_infra,
+    google_app_engine_application.app
+  ]
+}
+
+# Services
+
+resource "google_project_iam_member" "container_registry" {
+  project = var.analytics_project
+  for_each = toset([
+    "roles/editor"
+  ])
+
+  role = each.key
+
+  member = "serviceAccount:${google_project.analytics_infra.number}@cloudservices.gserviceaccount.com"
 
   depends_on = [
     google_project_service.analytics_infra,
@@ -18,57 +55,29 @@ resource "google_project_iam_binding" "editors" {
 
 # Cloud Build
 
-resource "google_project_iam_binding" "cloud_build_app_engine" {
+resource "google_project_iam_member" "cloud_build_app_engine" {
   project = var.analytics_project
-  role    = "roles/appengine.appAdmin"
+  for_each = toset([
+    "roles/appengine.appAdmin"
+  ])
+  role = each.key
 
-  members = [
-    "serviceAccount:${google_project.analytics_infra.number}@cloudbuild.gserviceaccount.com"
-  ]
+  member = "serviceAccount:${google_project.analytics_infra.number}@cloudbuild.gserviceaccount.com"
 
   depends_on = [google_project_service.analytics_infra]
 }
 
-# App Engine
-
-resource "google_project_iam_binding" "app_engine_bigquery" {
-  project = var.analytics_project
-  role    = "roles/bigquery.dataEditor"
-
-  members = [
-    "serviceAccount:${google_project.analytics_infra.project_id}@appspot.gserviceaccount.com"
-  ]
-
-  depends_on = [
-    google_project_service.analytics_infra,
-    google_app_engine_application.app
-  ]
-}
-
 # Kubeflow
 
-resource "google_project_iam_binding" "gke_kubeflow_kubeflow_storage" {
-  project = var.project
-  role    = "roles/storage.admin"
+resource "google_project_iam_member" "gke_kubeflow_kubeflow_storage" {
+  project = var.analytics_project
+  for_each = toset([
+    "roles/storage.admin",
+    "roles/bigquery.admin"
+  ])
+  role = each.key
 
-  members = [
-    "serviceAccount:${google_project.analytics_infra.number}-compute@developer.gserviceaccount.com"
-  ]
-
-  depends_on = [
-    google_project_service.analytics_infra,
-    google_container_cluster.primary
-  ]
-}
-
-
-resource "google_project_iam_binding" "gke_kubeflow_kubeflow_bigquery" {
-  project = var.project
-  role    = "roles/bigquery.admin"
-
-  members = [
-    "serviceAccount:${google_project.analytics_infra.number}-compute@developer.gserviceaccount.com"
-  ]
+  member = "serviceAccount:${google_project.analytics_infra.number}-compute@developer.gserviceaccount.com"
 
   depends_on = [
     google_project_service.analytics_infra,
