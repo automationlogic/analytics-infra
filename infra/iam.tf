@@ -37,7 +37,7 @@ resource "google_project_iam_member" "container_registry" {
 
 # Services
 
-resource "google_project_iam_member" "container_registry" {
+resource "google_project_iam_member" "services" {
   project = var.analytics_project
   for_each = toset([
     "roles/editor"
