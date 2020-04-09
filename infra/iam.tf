@@ -44,3 +44,34 @@ resource "google_project_iam_binding" "app_engine_bigquery" {
     google_app_engine_application.app
   ]
 }
+
+# Kubeflow
+
+resource "google_project_iam_binding" "gke_kubeflow_kubeflow_storage" {
+  project = var.project
+  role    = "roles/storage.admin"
+
+  members = [
+    "serviceAccount:${google_project.climate_analytics.number}-compute@developer.gserviceaccount.com"
+  ]
+
+  depends_on = [
+    google_project_service.climate_analytics,
+    google_container_cluster.primary
+  ]
+}
+
+
+resource "google_project_iam_binding" "gke_kubeflow_kubeflow_bigquery" {
+  project = var.project
+  role    = "roles/bigquery.admin"
+
+  members = [
+    "serviceAccount:${google_project.climate_analytics.number}-compute@developer.gserviceaccount.com"
+  ]
+
+  depends_on = [
+    google_project_service.climate_analytics,
+    google_container_cluster.primary
+  ]
+}
