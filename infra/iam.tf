@@ -55,7 +55,7 @@ resource "google_project_iam_member" "services" {
 
 # Cloud Build
 
-resource "google_project_iam_member" "cloud_build_app_engine" {
+resource "google_project_iam_member" "cloud_build" {
   project = var.analytics_project
   for_each = toset([
     "roles/appengine.appAdmin"
@@ -64,12 +64,14 @@ resource "google_project_iam_member" "cloud_build_app_engine" {
 
   member = "serviceAccount:${google_project.analytics_infra.number}@cloudbuild.gserviceaccount.com"
 
-  depends_on = [google_project_service.analytics_infra]
+  depends_on = [
+    google_project_service.analytics_infra
+  ]
 }
 
 # Kubeflow
 
-resource "google_project_iam_member" "gke_kubeflow_kubeflow_storage" {
+resource "google_project_iam_member" "kubeflow" {
   project = var.analytics_project
   for_each = toset([
     "roles/storage.admin",
@@ -81,6 +83,5 @@ resource "google_project_iam_member" "gke_kubeflow_kubeflow_storage" {
 
   depends_on = [
     google_project_service.analytics_infra,
-    google_container_cluster.primary
   ]
 }
