@@ -52,11 +52,11 @@ resource "google_project_iam_binding" "gke_kubeflow_kubeflow_storage" {
   role    = "roles/storage.admin"
 
   members = [
-    "serviceAccount:${google_project.climate_analytics.number}-compute@developer.gserviceaccount.com"
+    "serviceAccount:${google_project.analytics_infra.number}-compute@developer.gserviceaccount.com"
   ]
 
   depends_on = [
-    google_project_service.climate_analytics,
+    google_project_service.analytics_infra,
     google_container_cluster.primary
   ]
 }
@@ -67,11 +67,11 @@ resource "google_project_iam_binding" "gke_kubeflow_kubeflow_bigquery" {
   role    = "roles/bigquery.admin"
 
   members = [
-    "serviceAccount:${google_project.climate_analytics.number}-compute@developer.gserviceaccount.com"
+    "serviceAccount:${google_project.analytics_infra.number}-compute@developer.gserviceaccount.com"
   ]
 
   depends_on = [
-    google_project_service.climate_analytics,
+    google_project_service.analytics_infra,
     google_container_cluster.primary
   ]
 }
