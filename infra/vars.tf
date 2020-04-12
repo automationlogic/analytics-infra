@@ -6,6 +6,9 @@ variable "repos" {
 variable "training_repos" {
   type = set(string)
 }
+variable "security_repos" {
+  type = set(string)
+}
 variable "topics" {
   type = set(string)
 }
