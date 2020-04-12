@@ -11,6 +11,9 @@ training_repos = [
   "train-climate-news",
   "train-iris",
 ]
+security_repos = [
+  "vpc-security-controls"
+]
 topics = [
   "ncei-wind",
   "clnn-news"

@@ -5,6 +5,9 @@ repos = [
 training_repos = [
   "train-iris"
 ]
+security_repos = [
+  "vpc-security-controls"
+]
 topics = [
   "ncei-wind"
 ]

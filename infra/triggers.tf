@@ -52,3 +52,33 @@ resource "google_cloudbuild_trigger" "analytics_training" {
 
   depends_on = [google_project_service.analytics_infra]
 }
+
+# security repos have additional substitutions like org_id
+
+resource "google_cloudbuild_trigger" "analytics_security" {
+  provider = google-beta
+  for_each = var.security_repos
+
+  github {
+    owner = var.owner
+    name  = each.value
+    push {
+      branch = "^master$"
+    }
+  }
+
+  substitutions = {
+    _ORG_ID            = var.org_id
+    _REGION            = var.region
+    _INCEPTION_IP      = var.inception_ip
+    _ANALYTICS_PROJECT = var.analytics_project
+  }
+
+  description = "BUILD: ${each.value}"
+  filename    = "cloudbuild.yaml"
+  included_files = [
+    "**/*"
+  ]
+
+  depends_on = [google_project_service.analytics_infra]
+}
