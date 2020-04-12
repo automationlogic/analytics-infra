@@ -12,7 +12,7 @@ training_repos = [
   "train-iris",
 ]
 security_repos = [
-  "vpc-security-controls"
+  "vpc-service-controls"
 ]
 topics = [
   "ncei-wind",
