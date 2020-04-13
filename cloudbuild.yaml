@@ -29,6 +29,7 @@ steps:
   - "TF_VAR_owner_email=${_OWNER_EMAIL}"
   - "TF_VAR_kubeflow_host=${_KUBEFLOW_HOST}"
   - "TF_VAR_inception_ip=${_INCEPTION_IP}"
+  - "TF_VAR_inception_project_number=${_INCEPTION_PROJECT_NUMBER}"
 
 - id: 'Terraform apply'
   name: 'hashicorp/terraform'
@@ -50,5 +51,6 @@ steps:
   - "TF_VAR_owner_email=${_OWNER_EMAIL}"
   - "TF_VAR_kubeflow_host=${_KUBEFLOW_HOST}"
   - "TF_VAR_inception_ip=${_INCEPTION_IP}"
+  - "TF_VAR_inception_project_number=${_INCEPTION_PROJECT_NUMBER}"
 
 timeout: 1800s
