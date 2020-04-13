@@ -24,3 +24,4 @@ variable "owner" {}
 variable "owner_email" {}
 variable "kubeflow_host" {}
 variable "inception_ip" {}
+variable "inception_project_number" {}
