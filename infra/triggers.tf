@@ -74,7 +74,7 @@ resource "google_cloudbuild_trigger" "analytics_security" {
     _ORCHESTRATION_PROJECT_NUMBER = var.orchestration_project_number
     _INCEPTION_IP                 = var.inception_ip
     _INCEPTION_USER               = var.owner_email
-    _ANALYTICS_PROJECT_NUMBER     = var.analytics_project
+    _ANALYTICS_PROJECT_NUMBER     = google_project.analytics_infra.number
   }
 
   description = "BUILD: ${each.value}"
