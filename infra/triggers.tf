@@ -11,8 +11,9 @@ resource "google_cloudbuild_trigger" "analytics_infra" {
   }
 
   substitutions = {
-    _REGION            = var.region
-    _ANALYTICS_PROJECT = var.analytics_project
+    _REGION                = var.region
+    _ORCHESTRATION_PROJECT = var.orchestration_project_id
+    _ANALYTICS_PROJECT     = var.analytics_project
   }
 
   description = "BUILD: ${each.value}"
@@ -68,12 +69,12 @@ resource "google_cloudbuild_trigger" "analytics_security" {
   }
 
   substitutions = {
-    _ORG_ID                   = var.org_id
-    _REGION                   = var.region
-    _INCEPTION_PROJECT_NUMBER = var.inception_project_number
-    _INCEPTION_IP             = var.inception_ip
-    _INCEPTION_USER           = var.owner_email
-    _ANALYTICS_PROJECT        = var.analytics_project
+    _ORG_ID                       = var.org_id
+    _REGION                       = var.region
+    _ORCHESTRATION_PROJECT_NUMBER = var.orchestration_project_number
+    _INCEPTION_IP                 = var.inception_ip
+    _INCEPTION_USER               = var.owner_email
+    _ANALYTICS_PROJECT            = var.analytics_project
   }
 
   description = "BUILD: ${each.value}"
