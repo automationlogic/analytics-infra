@@ -72,9 +72,10 @@ resource "google_cloudbuild_trigger" "analytics_security" {
     _ORG_ID                       = var.org_id
     _REGION                       = var.region
     _ORCHESTRATION_PROJECT_NUMBER = var.orchestration_project_number
+    _ANALYTICS_PROJECT_NUMBER     = google_project.analytics_infra.number
+    _ANALYTICS_PROJECT            = var.analytics_project
     _INCEPTION_IP                 = var.inception_ip
     _INCEPTION_USER               = var.owner_email
-    _ANALYTICS_PROJECT_NUMBER     = google_project.analytics_infra.number
   }
 
   description = "BUILD: ${each.value}"
