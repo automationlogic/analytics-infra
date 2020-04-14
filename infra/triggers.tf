@@ -21,6 +21,11 @@ resource "google_cloudbuild_trigger" "analytics_infra" {
   included_files = [
     "**/*"
   ]
+  ignored_files = [
+    "README.md",
+    "LICENSE",
+    ".gitignore"
+  ]
 
   depends_on = [google_project_service.analytics_infra]
 }
@@ -49,6 +54,11 @@ resource "google_cloudbuild_trigger" "analytics_training" {
   filename    = "cloudbuild.yaml"
   included_files = [
     "**/*"
+  ]
+  ignored_files = [
+    "README.md",
+    "LICENSE",
+    ".gitignore"
   ]
 
   depends_on = [google_project_service.analytics_infra]
@@ -82,6 +92,11 @@ resource "google_cloudbuild_trigger" "analytics_security" {
   filename    = "cloudbuild.yaml"
   included_files = [
     "**/*"
+  ]
+  ignored_files = [
+    "README.md",
+    "LICENSE",
+    ".gitignore"
   ]
 
   depends_on = [google_project_service.analytics_infra]
