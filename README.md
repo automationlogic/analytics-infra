@@ -2,7 +2,9 @@
 
 ## Overview
 
-Creates the Analytics project and all related infrastructure resources such as Pub/Sub topics and subscriptions, and BigQuery datasets. Also creates pipeline triggers for downstream services and apps.
+Creates the Analytics project and all related infrastructure resources such as Pub/Sub topics and subscriptions, and BigQuery datasets.
+
+Creates pipeline triggers for downstream services and apps, as configured in `terraform.tfvars` (see [Configuration] (https://github.com/thundercomb/analytics-infra#Configuration) section).
 
 ## Prerequisites
 
