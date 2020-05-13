@@ -28,7 +28,7 @@ steps:
   - "TF_VAR_owner=${_OWNER}"
   - "TF_VAR_owner_email=${_OWNER_EMAIL}"
   - "TF_VAR_kubeflow_host=${_KUBEFLOW_HOST}"
-  - "TF_VAR_inception_ip=${_INCEPTION_IP}"
+  - "TF_VAR_bootstrap_ip=${_BOOTSTRAP_IP}"
   - "TF_VAR_orchestration_project_id=${PROJECT_ID}"
   - "TF_VAR_orchestration_project_number=${_ORCHESTRATION_PROJECT_NUMBER}"
 
@@ -51,7 +51,7 @@ steps:
   - "TF_VAR_owner=${_OWNER}"
   - "TF_VAR_owner_email=${_OWNER_EMAIL}"
   - "TF_VAR_kubeflow_host=${_KUBEFLOW_HOST}"
-  - "TF_VAR_inception_ip=${_INCEPTION_IP}"
+  - "TF_VAR_bootstrap_ip=${_BOOTSTRAP_IP}"
   - "TF_VAR_orchestration_project_id=${PROJECT_ID}"
   - "TF_VAR_orchestration_project_number=${_ORCHESTRATION_PROJECT_NUMBER}"
 

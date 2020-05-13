@@ -1,28 +1,19 @@
 repos = [
   "default-service",
-  "ingest-ncei-wind",
-  "ingest-clnn-news",
-  "generate-climate-news",
+  "ingest-iris",
   "serve-iris-predictions",
-  "serve-climate-news",
-  "kubeflow-tools",
+  "kubeflow-tools"
 ]
 training_repos = [
-  "train-climate-news",
-  "train-iris",
+  "train-iris"
 ]
-security_repos = [
-  "vpc-service-controls"
-]
+security_repos = []
 topics = [
-  "ncei-wind",
-  "clnn-news"
+  "iris"
 ]
 subscriptions = [
-  "ncei-wind",
-  "clnn-news"
+  "iris"
 ]
 datasets = [
-  "ncei",
-  "clnn"
+  "iris"
 ]

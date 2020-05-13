@@ -7,7 +7,7 @@ variable "billing_account" {}
 variable "owner" {}
 variable "owner_email" {}
 variable "kubeflow_host" {}
-variable "inception_ip" {}
+variable "bootstrap_ip" {}
 
 variable "repos" {
   type = set(string)

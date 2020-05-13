@@ -1,6 +1,7 @@
 repos = [
-  "ingest-ncei-wind",
-  "serve-climate-news"
+  "default-service",
+  "ingest-iris",
+  "serve-iris"
 ]
 training_repos = [
   "train-iris"
@@ -9,11 +10,11 @@ security_repos = [
   "vpc-service-controls"
 ]
 topics = [
-  "ncei-wind"
+  "iris"
 ]
 subscriptions = [
-  "ncei-wind"
+  "iris"
 ]
 datasets = [
-  "ncei"
+  "iris"
 ]
