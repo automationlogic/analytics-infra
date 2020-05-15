@@ -1,4 +1,4 @@
-resource "google_container_cluster" "primary" {
+resource "google_container_cluster" "kubeflow" {
   project  = var.analytics_project
   name     = var.kubeflow_cluster
   location = "${var.region}-b"
@@ -17,9 +17,11 @@ resource "google_container_cluster" "primary" {
       issue_client_certificate = false
     }
   }
+
+  depends_on = [google_project_service.analytics_infra]
 }
 
-resource "google_container_node_pool" "primary_preemptible_nodes" {
+resource "google_container_node_pool" "kubeflow_preemptible_nodes" {
   project    = var.analytics_project
   name       = var.kubeflow_node_pool
   location   = "${var.region}-b"
