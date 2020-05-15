@@ -29,7 +29,7 @@ variable "datasets" {
 }
 
 variable "kubeflow_cluster" {
-  default = "alcluster"
+  default = "kf-cluster"
 }
 
 variable "gke_node_type" {
