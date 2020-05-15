@@ -27,3 +27,15 @@ variable "subscriptions" {
 variable "datasets" {
   type = set(string)
 }
+
+variable "kubeflow_cluster" {
+  default = "kf-cluster"
+}
+
+variable "gke_node_type" {
+  default = "n1-standard-2"
+}
+
+variable "kubeflow_node_pool" {
+  default = "kubeflow-node-pool"
+}
