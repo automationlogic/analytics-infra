@@ -46,4 +46,6 @@ resource "google_container_node_pool" "kubeflow_preemptible_nodes" {
       "https://www.googleapis.com/auth/trace.append"
     ]
   }
+
+  depends_on = [google_container_cluster.kubeflow]
 }
