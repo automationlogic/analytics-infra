@@ -37,5 +37,5 @@ variable "gke_node_type" {
 }
 
 variable "kubeflow_node_pool" {
-  default = "kubeflow_node_pool"
+  default = "kubeflow-node-pool"
 }
