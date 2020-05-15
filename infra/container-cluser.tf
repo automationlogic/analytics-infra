@@ -1,7 +1,7 @@
 resource "google_container_cluster" "primary" {
-  project  = var.project
-  name     = var.name
-  location = var.location
+  project  = var.analytics_project
+  name     = var.kubeflow_cluster
+  location = "${var.region}-b"
 
   # We can't create a cluster with no node pool defined, but we want to only use
   # separately managed node pools. So we create the smallest possible default
@@ -20,15 +20,15 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
-  project    = var.project
-  name       = var.nodename
-  location   = var.location
+  project    = var.analytics_project
+  name       = var.kubeflow_node_pool
+  location   = "${var.region}-b"
   cluster    = google_container_cluster.primary.name
   node_count = 3
 
   node_config {
     preemptible  = true
-    machine_type = "n1-standard-2"
+    machine_type = var.gke_node_type
 
     metadata = {
       disable-legacy-endpoints = "true"
