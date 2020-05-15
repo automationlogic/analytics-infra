@@ -25,7 +25,7 @@ resource "google_container_node_pool" "kubeflow_preemptible_nodes" {
   project    = var.analytics_project
   name       = var.kubeflow_node_pool
   location   = "${var.region}-b"
-  cluster    = google_container_cluster.primary.name
+  cluster    = google_container_cluster.kubeflow.name
   node_count = 3
 
   node_config {
