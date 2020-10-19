@@ -9,8 +9,10 @@ training_repos = [
   "train-iris"
 ]
 security_repos = []
+
 topics = [
-  "iris"
+  "iris", 
+  "nvd-cve"
 ]
 subscriptions = [
   "iris", 
