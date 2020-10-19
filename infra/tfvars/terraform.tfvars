@@ -1,6 +1,7 @@
 repos = [
   "default-service",
   "ingest-iris",
+  "ingest-nvd-cve",
   "serve-iris-predictions",
   "kubeflow-tools"
 ]
@@ -12,8 +13,10 @@ topics = [
   "iris"
 ]
 subscriptions = [
-  "iris"
+  "iris", 
+  "nvd-cve"
 ]
 datasets = [
-  "iris"
+  "iris",
+  "nvd_cve"
 ]
