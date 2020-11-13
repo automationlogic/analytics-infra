@@ -2,6 +2,7 @@ repos = [
   "default-service",
   "ingest-iris",
   "ingest-nvd-cve",
+  "ingest-ably-tfl",
   "serve-iris-predictions",
   "kubeflow-tools"
 ]
@@ -11,14 +12,17 @@ training_repos = [
 security_repos = []
 
 topics = [
-  "iris", 
-  "nvd-cve"
+  "iris",
+  "nvd-cve",
+  "ably-tfl-tube"
 ]
 subscriptions = [
-  "iris", 
-  "nvd-cve"
+  "iris",
+  "nvd-cve",
+  "ably-tfl-tube"
 ]
 datasets = [
   "iris",
-  "nvd_cve"
+  "nvd_cve",
+  "ably_tfl"
 ]
