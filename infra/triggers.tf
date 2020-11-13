@@ -6,7 +6,7 @@ resource "google_cloudbuild_trigger" "analytics_infra" {
     owner = var.owner
     name  = each.value
     push {
-      branch = "^master$"
+      branch = "^master|main$"
     }
   }
 
@@ -40,7 +40,7 @@ resource "google_cloudbuild_trigger" "analytics_training" {
     owner = var.owner
     name  = each.value
     push {
-      branch = "^master$"
+      branch = "^master|main$"
     }
   }
 
@@ -74,7 +74,7 @@ resource "google_cloudbuild_trigger" "analytics_security" {
     owner = var.owner
     name  = each.value
     push {
-      branch = "^master$"
+      branch = "^master|main$"
     }
   }
 
