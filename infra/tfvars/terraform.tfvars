@@ -3,6 +3,7 @@ repos = [
   "ingest-iris",
   "ingest-nvd-cve",
   "ingest-ably-tfl",
+  "process-ably-tfl",
   "serve-iris-predictions",
   "kubeflow-tools"
 ]
